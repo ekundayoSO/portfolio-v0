@@ -1,4 +1,4 @@
-# Portfolio Project
+# Personal Portfolio Project
 
 ## Description
 This project sets up a basic Express server, renders html templates using the `hogan-middleware` library, and leverages `nodemon` for live-reloading during development. It serves as a foundation for building more complex Express applications.
