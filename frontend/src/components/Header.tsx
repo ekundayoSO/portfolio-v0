@@ -10,11 +10,11 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-gray-800 text-white p-4 sticky top-0 w-full">
+    <header className="bg-gray-800 text-white p-4 sticky top-0 w-full z-10">
       <div className="flex justify-between items-center">
         {/* Logo/Title Section */}
         <h1>
-          <Link to="/" className="text-lg md:text-xl font-semibold hover:text-gray-300 transition-colors">
+          <Link to="/" className="text-lg md:text-xl font-semibold hover:text-gray-300 transition-colors lobster-font">
             Sulaimon Ekundayo
           </Link>
         </h1>
@@ -29,6 +29,16 @@ const Header: React.FC = () => {
           <ul className="flex space-x-4">
             <li>
               <NavLink
+                to="/home"
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/about"
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
@@ -55,6 +65,16 @@ const Header: React.FC = () => {
                 }
               >
                 Projects
+              </NavLink>
+            </li>{' '}
+            <li>
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Blogs
               </NavLink>
             </li>
           </ul>
@@ -67,8 +87,19 @@ const Header: React.FC = () => {
           <ul className="flex flex-col space-y-4">
             <li>
               <NavLink
-                to="/about"
+                to="/home"
                 onClick={toggleMenu} // Close menu when a link is clicked
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                onClick={toggleMenu} 
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
@@ -79,7 +110,7 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/resume"
-                onClick={toggleMenu} // Close menu when a link is clicked
+                onClick={toggleMenu} 
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
@@ -90,12 +121,23 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/projects"
-                onClick={toggleMenu} // Close menu when a link is clicked
+                onClick={toggleMenu} 
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
               >
                 Projects
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/blogs"
+                onClick={toggleMenu} 
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Blogs
               </NavLink>
             </li>
           </ul>
