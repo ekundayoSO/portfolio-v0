@@ -17,21 +17,22 @@ export const Footer: React.FC = () => {
           <span>
             sulaimon.ekundayo1@gmail.com
             <br />
-            +358 20 187 6602
+            +358 00 000 0000
           </span>
         </div>
 
         <div className="flex gap-3 text-2xl">
-          <a href="https://www.linkedin.com/company/druid-oy/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/sulaimonekundayo/" target="_blank" rel="noreferrer">
             <FaLinkedin />
           </a>
-          <a href="https://www.facebook.com/druidfi/" target="_blank" rel="noreferrer">
+          <a href="https://www.facebook.com/noble.ekundayo/" target="_blank" rel="noreferrer">
             <FaFacebook />
           </a>
-          <a href="https://www.instagram.com/druidfi/" target="_blank" rel="noreferrer">
+
+          <a href="#https://www.instagram.com/druidfi/" target="_blank" rel="noreferrer">
             <FaInstagramSquare />
           </a>
-          <a href="https://x.com/druidfi" target="_blank" rel="noreferrer">
+          <a href="#https://x.com/druidfi" target="_blank" rel="noreferrer">
             <FaSquareXTwitter />
           </a>
         </div>
