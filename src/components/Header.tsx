@@ -14,7 +14,7 @@ const Header: React.FC = () => {
       <div className="flex justify-between items-center">
         {/* Logo/Title Section */}
         <h1>
-          <Link to="/" className="text-lg md:text-xl font-semibold hover:text-gray-300 transition-colors lobster-font">
+          <Link to="/home" className="text-lg md:text-xl font-semibold hover:text-gray-300 transition-colors lobster-font">
             Sulaimon Ekundayo
           </Link>
         </h1>
