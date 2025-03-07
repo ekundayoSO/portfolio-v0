@@ -3,7 +3,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <footer className="sticky bottom-0 py-2 md:py-8 text-gray-300 flex flex-col items-center justify-center gap-4 bg-gray-800 w-full mt-20">
       <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center px-4 md:px-8">

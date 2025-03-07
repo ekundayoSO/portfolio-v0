@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Icons for hamburger and close
 
-const Header: React.FC = () => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage mobile menu visibility
 
   const toggleMenu = () => {
