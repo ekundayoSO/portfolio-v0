@@ -77,6 +77,7 @@ const Header: React.FC = () => {
                 Blogs
               </NavLink>
             </li>
+            
           </ul>
         </nav>
       </div>
@@ -99,7 +100,7 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/about"
-                onClick={toggleMenu} 
+                onClick={toggleMenu}
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
@@ -110,7 +111,7 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/resume"
-                onClick={toggleMenu} 
+                onClick={toggleMenu}
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
@@ -121,7 +122,7 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/projects"
-                onClick={toggleMenu} 
+                onClick={toggleMenu}
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
@@ -132,7 +133,7 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/blogs"
-                onClick={toggleMenu} 
+                onClick={toggleMenu}
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }

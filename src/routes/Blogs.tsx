@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
-import { db } from '../auth/firebase';
-import { collection, addDoc, onSnapshot } from 'firebase/firestore';
+import { useState } from 'react';
 import { BlogPost } from '../types/Blogs';
 
 // Rating Component
@@ -92,22 +90,22 @@ const Blogs: React.FC = () => {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState<string[]>([]);
   const [newBlogPost, setNewBlogPost] = useState('');
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([
+    // Example static blog posts
+    {
+      id: '1',
+      name: 'John Doe',
+      content: 'This is an example blog post.',
+      timestamp: new Date().toLocaleString(),
+    },
+    {
+      id: '2',
+      name: 'Jane Smith',
+      content: 'Another example blog post.',
+      timestamp: new Date().toLocaleString(),
+    },
+  ]);
   const [bloggerName, setBloggerName] = useState('');
-
-  // Fetch blog posts from Firestore on component mount
-  useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, 'blogPosts'), (querySnapshot) => {
-      const posts: BlogPost[] = [];
-      querySnapshot.forEach((doc) => {
-        posts.push({ id: doc.id, ...doc.data() } as BlogPost);
-      });
-      setBlogPosts(posts);
-    });
-
-    // Clean up the listener on unmount
-    return () => unsubscribe();
-  }, []);
 
   // Handle rating selection
   const handleRating = (value: number) => {
@@ -123,19 +121,17 @@ const Blogs: React.FC = () => {
   };
 
   // Handle new blog post submission
-  const handleBlogPostSubmit = async () => {
+  const handleBlogPostSubmit = () => {
     if (newBlogPost.trim() && bloggerName.trim()) {
       const newPost = {
+        id: (blogPosts.length + 1).toString(),
         name: bloggerName,
         content: newBlogPost,
         timestamp: new Date().toLocaleString(),
       };
 
-      // Add the new blog post to Firestore
-      const docRef = await addDoc(collection(db, 'blogPosts'), newPost);
-
       // Update the local state with the new blog post
-      setBlogPosts([...blogPosts, { id: docRef.id, ...newPost }]);
+      setBlogPosts([...blogPosts, newPost]);
       setNewBlogPost('');
       setBloggerName('');
     }
