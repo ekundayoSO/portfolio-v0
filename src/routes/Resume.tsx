@@ -170,11 +170,12 @@ const Resume: React.FC = () => {
           <li>Programming Languages: JavaScript (React.js), PHP, SQL, Python</li>
           <li>Front-end: HTML, CSS, Tailwind CSS, Bootstrap, React.js</li>
           <li>Back-end: PHP, Symfony, Node.js, Express.js</li>
-          <li>Database: MySQL, SQL</li>
+          <li>CMS: Drupal, Strapi</li>
+          <li>Database: MySQL, SQL, PostgreSQL</li>
           <li>API: RESTful APIs, API Integration, Postman</li>
           <li>DevOps: Docker, Kubernetes, Jenkins, CI/CD pipelines, Git actions</li>
           <li>Version Control: Git, Github, Bitbucket</li>
-          <li>Test Automation: Selenium WebDriver, TestNG, JUnit, Mocha, Cypress, Playwright, Robot Framework</li>
+          <li>Test Automation: Selenium WebDriver, TestNG, JUnit, Mocha, Cypress, Playwright, Robot Framework, Java Cucumber</li>
           <li>Mobile testing: Appium</li>
           <li>Testing Tools: JIRA, Zephyr, Xray, Postman, Rest Assured</li>
           <li>Agile Methodologies: Scrum</li>
