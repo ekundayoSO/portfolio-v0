@@ -58,6 +58,44 @@ const Resume: React.FC = () => {
 
         {/* Grid Container for Experience Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Experience Card for Tutors Finland Oy */}
+          <div className="flip-card h-96">
+            <div className="flip-card-inner">
+              {/* Front Side */}
+              <div className="text-center flip-card-front bg-gray-700 p-6 rounded-lg">
+                <h3 className="mt-32 text-lg sm:text-xl font-semibold text-blue-400">Full Stack Developer Trainee</h3>
+                <h4 className="text-gray-300">Tutors Finland Oy</h4>
+                <h4 className="text-gray-300">February 2025 - present</h4>
+              </div>
+
+              {/* Back Side */}
+              <div className="flip-card-back bg-gray-600 p-6 rounded-lg overflow-y-auto">
+                <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-300">
+                  <li>
+                    Strapi Setup: Installed and configured a Strapi instance, ensuring that all necessary rules are set
+                    for content fetching in the frontend.
+                  </li>
+                  <li>
+                    Content Management: Populated the Strapi instance with content, utilizing content types builder and
+                    content manager.
+                  </li>
+                  <li>
+                    API Integration: Utilized the Strapi inbuilt Restful API and GraphQL to expose Strapi content and
+                    integrated the content into a React app, ensuring dynamic content fetching and rendering.
+                  </li>
+                  <li>
+                    Cross-functional Collaboration: Worked closely with team members to align the project with business
+                    requirements, ensuring smooth communication between the backend and front-end development teams.
+                  </li>
+                  <li>
+                    Performance Optimization: Ensured efficient API calls and minimized load times by optimizing Strapi
+                    content delivery to the React frontend.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Experience Card for Druid Oy */}
           <div className="flip-card h-96">
             <div className="flip-card-inner">
@@ -157,9 +195,19 @@ const Resume: React.FC = () => {
       <div className="max-w-4xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6">
         <h2 className="text-xl sm:text-2xl font-bold text-blue-400 mb-4">Education and Certification</h2>
         <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-300">
-          <li>Vocational Qualification in Information Communications Technology - Business College Helsinki</li>
-          <li>Bachelor of Business Administration - Central Ostrobothnia UAS</li>
-          <li>Master of Science in Economics and Business Administration - University of Oulu</li>
+          <li>
+            Vocational Qualification in Information Communications Technology - Business College Helsinki, Finland
+          </li>
+          <li>Master of Science in Economics and Business Administration - University of Oulu, Finland</li>
+          <li>Bachelor of Business Administration - Central Ostrobothnia UAS, Finland</li>
+          <li>
+            Advanced Diploma in Accounting and Business - Association of Chartered Certified Accountants (ACCA) United
+            Kingdom
+          </li>
+          <li>
+            Diploma in Accounting and Business - Association of Chartered Certified Accountants (ACCA) United Kingdom
+          </li>
+          <li>Associate Accounting Technician - Institute of Chartered Accountants of Nigeria (ICAN)</li>
         </ul>
       </div>
 
@@ -175,7 +223,10 @@ const Resume: React.FC = () => {
           <li>API: RESTful APIs, API Integration, Postman</li>
           <li>DevOps: Docker, Kubernetes, Jenkins, CI/CD pipelines, Git actions</li>
           <li>Version Control: Git, Github, Bitbucket</li>
-          <li>Test Automation: Selenium WebDriver, TestNG, JUnit, Mocha, Cypress, Playwright, Robot Framework, Java Cucumber</li>
+          <li>
+            Test Automation: Selenium WebDriver, TestNG, JUnit, Mocha, Cypress, Playwright, Robot Framework, Java
+            Cucumber
+          </li>
           <li>Mobile testing: Appium</li>
           <li>Testing Tools: JIRA, Zephyr, Xray, Postman, Rest Assured</li>
           <li>Agile Methodologies: Scrum</li>
