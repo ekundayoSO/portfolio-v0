@@ -69,7 +69,7 @@ const Header = () => {
             </li>{' '}
             <li>
               <NavLink
-                to="/blogs"
+                to="/blog"
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
@@ -132,7 +132,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/blogs"
+                to="/blog"
                 onClick={toggleMenu}
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`

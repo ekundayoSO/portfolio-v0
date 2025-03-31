@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
-import './App.css';
 import Root from './routes/Root';
 import ErrorPage from './routes/ErrorPage';
 import Projects from './routes/Projects';
 import About from './routes/About';
 import Resume from './routes/Resume';
 import Home from './routes/Home';
-import Blogs from './routes/Blogs';
+import BlogPostList from './routes/blog/BlogPostList';
+import BlogPostDetail from './routes/blog/BlogPostDetail';
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +20,8 @@ function App() {
         { path: '/about', element: <About /> },
         { path: '/projects', element: <Projects /> },
         { path: '/resume', element: <Resume /> },
-        { path: '/blogs', element: <Blogs /> },
+        { path: '/blog', element: <BlogPostList /> },
+        { path: '/blog/:documentId', element: <BlogPostDetail /> },
       ],
     },
   ]);
