@@ -1,38 +1,26 @@
-// types.ts
-export interface CoverImage {
-  data: {
-    attributes: {
-      url: string;
-    };
-  };
-}
-
-export interface BlogPostAttributes {
-  coverImage: CoverImage;
+export interface Blog {
+  id: number;
+  documentId: string;
   title: string;
   description: string;
   author: string;
   date: string;
-  contents: (TextContent | ImageContent)[];
-}
-
-export interface BlogPost {
-  id: string;
-  attributes: BlogPostAttributes;
-}
-
-export interface TextContent {
-  __typename: 'ComponentContentText';
-  description: string;
-}
-
-export interface ImageContent {
-  __typename: 'ComponentContentImage';
-  images: {
-    data: {
-      attributes: {
+  content: string;
+  coverImage: Array<{
+    url: string;
+    formats: {
+      thumbnail: {
+        url: string;
+      };
+      small?: {
+        url: string;
+      };
+      medium?: {
+        url: string;
+      };
+      large?: {
         url: string;
       };
     };
-  };
+  }>;
 }
