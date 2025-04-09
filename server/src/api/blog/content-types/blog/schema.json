@@ -11,6 +11,12 @@
     "draftAndPublish": true
   },
   "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
     "coverImage": {
       "type": "media",
       "multiple": true,
@@ -21,12 +27,6 @@
         "videos",
         "audios"
       ]
-    },
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
     },
     "author": {
       "type": "string"
