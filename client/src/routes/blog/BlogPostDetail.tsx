@@ -5,33 +5,11 @@ import ReactMarkdown from 'react-markdown'; // For rendering Markdown content
 import remarkGfm from 'remark-gfm'; // For GitHub Flavored Markdown support
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import {Blog} from '../../types/Blogs'
 
-interface Blog {
-  id: number;
-  documentId: string;
-  title: string;
-  description: string;
-  content: string;
-  coverImage: Array<{
-    url: string;
-    formats: {
-      thumbnail: {
-        url: string;
-      };
-      small?: {
-        url: string;
-      };
-      medium?: {
-        url: string;
-      };
-      large?: {
-        url: string;
-      };
-    };
-  }>;
-}
 
-const API_BASE_URL = 'http://localhost:1337';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const BlogPostsDetails: React.FC = () => {
   const { i18n } = useTranslation();

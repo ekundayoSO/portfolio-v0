@@ -2,34 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { fetchBlogs } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Blog } from '../../types/Blogs';
 
-interface Blog {
-  id: number;
-  documentId: string;
-  title: string;
-  description: string;
-  author: string;
-  date: string;
-  coverImage: Array<{
-    url: string;
-    formats: {
-      thumbnail: {
-        url: string;
-      };
-      small?: {
-        url: string;
-      };
-      medium?: {
-        url: string;
-      };
-      large?: {
-        url: string;
-      };
-    };
-  }>;
-}
 
-const API_BASE_URL = 'http://localhost:1337';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const BlogPosts: React.FC = () => {
   const { i18n } = useTranslation();
