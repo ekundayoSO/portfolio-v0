@@ -1,12 +1,12 @@
 import axios from "axios";
 
 
-const API_URL = 'http://localhost:1337/api/blogs';
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Fetch all blogs
 export const fetchBlogs = async (locale: string) => {
   try {
-    const response = await axios.get(API_URL, {
+    const response = await axios.get(`${API_URL}/api/blogs`, {
       params: {
         locale: locale,
         populate: '*',      
@@ -22,7 +22,7 @@ export const fetchBlogs = async (locale: string) => {
 // Fetch a single blog by documentId
 export const fetchBlogById = async (locale: string, documentId: string) => {
   try {
-    const response = await axios.get(`${API_URL}/${documentId}`, {
+    const response = await axios.get(`${API_URL}/api/blogs/${documentId}`, {
       params: {
         locale: locale,
         populate: '*',
