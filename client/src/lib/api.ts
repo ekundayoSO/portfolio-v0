@@ -50,8 +50,22 @@ export const fetchBlogById = async (locale: string, documentId: string) => {
 // Create a new blog post
 export const createBlog = async (locale: string, blogData: BlogData) => {
   try {
-    const response = await axios.post(`${API_URL}/api/blogs`, blogData, {
+    const formData = new FormData();
+    formData.append('title', blogData.title);
+    formData.append('content', blogData.content);
+    formData.append('author', blogData.author);
+    formData.append('date', blogData.date);
+    formData.append('description', blogData.description);
+
+    if (blogData.coverImage) {
+      formData.append('coverImage', blogData.coverImage); // Add coverImage if it exists
+    }
+
+    const response = await axios.post(`${API_URL}/api/blogs`, formData, {
       params: { locale },
+      headers: {
+        'Content-Type': 'multipart/form-data', // Set the correct content type for file uploads
+      },
     });
     return response.data;
   } catch (error) {

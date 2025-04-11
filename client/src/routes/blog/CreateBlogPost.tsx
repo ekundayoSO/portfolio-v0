@@ -28,6 +28,8 @@ const CreateBlogPost: React.FC = () => {
         description,
       };
 
+      console.log('Submitting blog data:', blogData); // Log the blogData object
+
       await createBlog(locale, blogData);
       navigate('/blog');
     } catch (err) {
@@ -48,7 +50,6 @@ const CreateBlogPost: React.FC = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full border rounded px-3 py-2"
-            required
           />
         </div>
         <div className="mb-4">
@@ -58,7 +59,6 @@ const CreateBlogPost: React.FC = () => {
             onChange={(e) => setContent(e.target.value)}
             className="w-full border rounded px-3 py-2"
             rows={6}
-            required
           ></textarea>
         </div>
         <div className="mb-4">
@@ -68,7 +68,6 @@ const CreateBlogPost: React.FC = () => {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             className="w-full border rounded px-3 py-2"
-            required
           />
         </div>
         <div className="mb-4">
@@ -86,7 +85,6 @@ const CreateBlogPost: React.FC = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             className="w-full border rounded px-3 py-2"
-            required
           />
         </div>
         <div className="mb-4">
@@ -96,7 +94,6 @@ const CreateBlogPost: React.FC = () => {
             onChange={(e) => setDescription(e.target.value)}
             className="w-full border rounded px-3 py-2"
             rows={3}
-            required
           ></textarea>
         </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
