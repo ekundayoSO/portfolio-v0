@@ -6,7 +6,7 @@ import { Blog } from '../../types/Blogs';
 
 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// const API_BASE_URL = import.meta.env.VITE_IMAGES_URL;
 
 const BlogPosts: React.FC = () => {
   const { i18n } = useTranslation();
@@ -48,7 +48,7 @@ const BlogPosts: React.FC = () => {
           >
             {blog.coverImage?.[0]?.url && (
               <img
-                src={`${API_BASE_URL}${blog.coverImage[0].url}`}
+                src={blog.coverImage[0].url}
                 alt={blog.title}
                 className="w-full h-48 object-cover"
               />
