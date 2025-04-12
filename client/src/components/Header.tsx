@@ -14,7 +14,10 @@ const Header = () => {
       <div className="flex justify-between items-center">
         {/* Logo/Title Section */}
         <h1>
-          <Link to="/home" className="text-lg md:text-xl font-semibold hover:text-gray-300 transition-colors lobster-font">
+          <Link
+            to="/home"
+            className="text-lg md:text-xl font-semibold hover:text-gray-300 transition-colors lobster-font"
+          >
             Sulaimon Ekundayo
           </Link>
         </h1>
@@ -77,7 +80,16 @@ const Header = () => {
                 Blogs
               </NavLink>
             </li>
-            
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Contact
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </div>
@@ -139,6 +151,17 @@ const Header = () => {
                 }
               >
                 Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                onClick={toggleMenu}
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Contact
               </NavLink>
             </li>
           </ul>

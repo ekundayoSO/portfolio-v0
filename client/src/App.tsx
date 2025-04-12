@@ -7,6 +7,7 @@ import Resume from './routes/Resume';
 import Home from './routes/Home';
 import BlogPostList from './routes/blog/BlogPostList';
 import BlogPostDetail from './routes/blog/BlogPostDetail';
+import Contact from './routes/Contact';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +23,7 @@ function App() {
         { path: '/resume', element: <Resume /> },
         { path: '/blog', element: <BlogPostList /> },
         { path: '/blog/:documentId', element: <BlogPostDetail /> },
+        { path: '/contact', element: <Contact /> },
       ],
     },
   ]);
