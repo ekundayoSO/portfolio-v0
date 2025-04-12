@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { FaPaperPlane } from 'react-icons/fa';
 import { FormValues } from '../types/FormValues'; // Import the type
 
-const API_URL = import.meta.env.VITE_API_BASE_URL + '/api/contact';
+const API_URL = import.meta.env.VITE_API_BASE_URL + '/api/contacts';
 
 const Contact: React.FC = () => {
   // Form validation schema
