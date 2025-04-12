@@ -8,9 +8,6 @@ import { useTranslation } from 'react-i18next';
 import {Blog} from '../../types/Blogs'
 
 
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
 const BlogPostsDetails: React.FC = () => {
   const { i18n } = useTranslation();
   const locale = i18n.language;
@@ -48,7 +45,7 @@ const BlogPostsDetails: React.FC = () => {
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         {blog.coverImage?.[0]?.url && (
           <img
-            src={`${API_BASE_URL}${blog.coverImage[0].url}`}
+            src={blog.coverImage[0].url}
             alt={blog.title}
             className="w-full h-48 md:h-64 object-cover"
           />
