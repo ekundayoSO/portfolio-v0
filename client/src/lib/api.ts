@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API_URL = 'http://localhost:1337/api/blogs';
+const API_URL = import.meta.env.VITE_API_BASE_URL + '/api/blogs';
 
 // Fetch all blogs
 export const fetchBlogs = async (locale: string) => {
