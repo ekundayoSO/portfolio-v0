@@ -25,9 +25,8 @@ const Contact: React.FC = () => {
     validationSchema,
     onSubmit: async (values: FormValues, { resetForm, setSubmitting, setStatus }: FormikHelpers<FormValues>) => {
       try {
-        await axios.post(`${API_URL}`, {
-          data: values,
-        });
+        // Adjust payload structure to match server expectations
+        await axios.post(`${API_URL}`, values); // Removed the `data` wrapper
         resetForm();
         setStatus({ success: true });
       } catch (error) {
