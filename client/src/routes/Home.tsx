@@ -68,7 +68,7 @@ const Home: React.FC = () => {
             from you!
           </p>
           <Link
-            to="#footer"
+            to="/contact"
             className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors"
           >
             Get in Touch

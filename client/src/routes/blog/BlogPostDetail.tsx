@@ -5,8 +5,7 @@ import ReactMarkdown from 'react-markdown'; // For rendering Markdown content
 import remarkGfm from 'remark-gfm'; // For GitHub Flavored Markdown support
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {Blog} from '../../types/Blogs'
-
+import { Blog } from '../../types/Blogs';
 
 const BlogPostsDetails: React.FC = () => {
   const { i18n } = useTranslation();
@@ -47,11 +46,11 @@ const BlogPostsDetails: React.FC = () => {
           <img
             src={blog.coverImage[0].url}
             alt={blog.title}
-            className="w-full h-48 md:h-64 object-cover"
+            className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover"
           />
         )}
-        <div className="p-24">
-          <h2 className="text-3xl text-center font-bold mb-4">{blog.title}</h2>
+        <div className="p-4 sm:p-8 md:p-16 lg:p-24">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold mb-4">{blog.title}</h2>
           <div className="text-gray-700 mb-4">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
@@ -63,10 +62,12 @@ const BlogPostsDetails: React.FC = () => {
                     style={{
                       maxWidth: '100%',
                       height: 'auto',
-                      minWidth: '1000px',
                     }}
                   />
                 ),
+                ul: ({ ...props }) => <ul {...props} className="list-disc list-inside mb-4 pl-6" />,
+                ol: ({ ...props }) => <ol {...props} className="list-decimal list-inside mb-4 pl-6" />,
+                li: ({ ...props }) => <li {...props} className="mb-2 pl-2" />,
               }}
             >
               {blog.content}
@@ -76,7 +77,7 @@ const BlogPostsDetails: React.FC = () => {
       </div>
       <button
         onClick={() => navigate('/blog')}
-        className="mt-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-blue-500"
+        className="mt-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-blue-500 w-full sm:w-auto"
       >
         Back to blogs
       </button>

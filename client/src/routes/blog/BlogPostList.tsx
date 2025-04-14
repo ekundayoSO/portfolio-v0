@@ -40,6 +40,10 @@ const BlogPosts: React.FC = () => {
               <img src={blog.coverImage[0].url} alt={blog.title} className="w-full h-48 object-cover" />
             )}
             <div className="p-6 flex flex-col flex-grow">
+              <div className='flex justify-between mb-4'>
+                <p>{blog.author}</p>
+                <p>{blog.date}</p>
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-blue-400">{blog.title}</h3>
               <p className="text-sm text-gray-300 mb-4 flex-grow">{blog.description}</p>
               <Link to={`/blog/${blog.documentId}`} className="text-sm text-blue-400 hover:text-blue-500 self-start">

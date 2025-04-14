@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
       // Transform the message field into an array if required by the backend
       const payload = {
         ...formData,
-        message: [formData.message], // Wrap the message in an array
+        message: [formData.message],
       };
 
       console.log('Submitting payload:', payload); // Log the payload for debugging
@@ -82,92 +82,96 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Us</h2>
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
+      <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
+        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">
+          Contact Us
+        </h2>
 
-      {submitStatus === 'success' && (
-        <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
-          Thank you for your message! We'll get back to you soon.
-        </div>
-      )}
+        {submitStatus === 'success' && (
+          <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
+            Thank you for your message! We'll get back to you soon.
+          </div>
+        )}
 
-      {submitStatus === 'error' && (
-        <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
-          There was an error submitting your form. Please try again.
-        </div>
-      )}
+        {submitStatus === 'error' && (
+          <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
+            There was an error submitting your form. Please try again.
+          </div>
+        )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-2">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-2">
+            <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-300">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <div className="space-y-2">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+          <div className="space-y-2">
+            <label htmlFor="email" className="block text-sm sm:text-base font-medium text-gray-300">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <div className="space-y-2">
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
-            Subject
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+          <div className="space-y-2">
+            <label htmlFor="subject" className="block text-sm sm:text-base font-medium text-gray-300">
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <div className="space-y-2">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={5}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+          <div className="space-y-2">
+            <label htmlFor="message" className="block text-sm sm:text-base font-medium text-gray-300">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={5}
+              required
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className={`w-full py-2 px-4 rounded-md text-white font-medium ${
-            isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
-          } transition-colors`}
-        >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={`w-full py-3 px-6 rounded-md text-white font-medium ${
+              isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+            } transition-colors`}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
