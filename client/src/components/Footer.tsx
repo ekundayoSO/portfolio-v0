@@ -17,7 +17,7 @@ export const Footer = () => {
           <span>
             sulaimon.ekundayo1@gmail.com
             <br />
-            +358 00 000 0000
+            +358 440 255 576
           </span>
         </div>
 

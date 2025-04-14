@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
       <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
         <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">
-          Contact Us
+          Contact Me
         </h2>
 
         {submitStatus === 'success' && (
