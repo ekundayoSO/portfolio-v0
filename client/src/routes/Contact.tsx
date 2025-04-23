@@ -1,4 +1,3 @@
-// src/components/ContactForm.tsx
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -18,6 +17,7 @@ const Contact: React.FC = () => {
     subject: '',
     message: '',
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -35,25 +35,24 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Transform the message field into an array if required by the backend
       const payload = {
-        ...formData,
-        message: [formData.message],
+        data: {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
       };
 
-      console.log('Submitting payload:', payload); // Log the payload for debugging
+      console.log('Submitting payload:', payload);
 
-      const response = await axios.post(
-        `${API_URL}/api/contacts`,
-        { data: payload }, // Ensure the payload matches the server's expected structure
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/contacts`, payload, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      console.log('Server response:', response.data); // Log the server's response
+      console.log('Server response:', response.data);
 
       if (response.status >= 200 && response.status < 300) {
         setSubmitStatus('success');
@@ -71,7 +70,7 @@ const Contact: React.FC = () => {
         console.error('Detailed error:', {
           message: error.message,
           status: error.response?.status,
-          data: error.response?.data, // Log the server's error response
+          data: error.response?.data,
           headers: error.response?.headers,
         });
       }
@@ -84,9 +83,7 @@ const Contact: React.FC = () => {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
       <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
-        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">
-          Contact Me
-        </h2>
+        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">Contact Me</h2>
 
         {submitStatus === 'success' && (
           <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
