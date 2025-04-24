@@ -1,5 +1,7 @@
+
 import { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -44,15 +46,11 @@ const Contact: React.FC = () => {
         },
       };
 
-      console.log('Submitting payload:', payload);
-
       const response = await axios.post(`${API_URL}/api/contacts`, payload, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
-      console.log('Server response:', response.data);
 
       if (response.status >= 200 && response.status < 300) {
         setSubmitStatus('success');
@@ -62,8 +60,22 @@ const Contact: React.FC = () => {
           subject: '',
           message: '',
         });
+        Swal.fire({
+          title: 'Success!',
+          text: "Thank you for your message! We'll get back to you soon.",
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3b82f6',
+        });
       } else {
         setSubmitStatus('error');
+        Swal.fire({
+          title: 'Error!',
+          text: 'There was an error submitting your form. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3b82f6',
+        });
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -75,6 +87,13 @@ const Contact: React.FC = () => {
         });
       }
       setSubmitStatus('error');
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an error submitting your form. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3b82f6',
+      });
     } finally {
       setIsSubmitting(false);
     }
