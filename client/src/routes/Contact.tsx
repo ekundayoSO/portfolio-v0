@@ -60,7 +60,7 @@ const successVariants = {
   },
 };
 
-const renderURL = import.meta.env.VITE_API_BASE_URL; // Replace with your Strapi backend URL
+const renderURL = import.meta.env.VITE_API_BASE_URL; 
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -216,7 +216,7 @@ const Contact = () => {
             <motion.textarea
               id="message"
               name="message"
-              rows="5"
+              rows={5}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.message}
