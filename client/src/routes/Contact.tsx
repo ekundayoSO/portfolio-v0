@@ -1,257 +1,170 @@
-import { useState, useEffect } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { useState } from 'react';
 import axios from 'axios';
-import { motion } from 'framer-motion';
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      when: 'beforeChildren',
-    },
-  },
-};
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 10,
-    },
-  },
-};
+interface ContactData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
-const formFieldVariants = {
-  focus: {
-    scale: 1.01,
-    boxShadow: '0px 0px 8px rgba(99, 102, 241, 0.3)',
-  },
-};
-
-const buttonVariants = {
-  initial: { scale: 1 },
-  tap: { scale: 0.98 },
-  hover: {
-    scale: 1.02,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-    },
-  },
-};
-
-const successVariants = {
-  hidden: { scale: 0.8, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
-};
-
-const renderURL = import.meta.env.VITE_API_BASE_URL; 
-
-const Contact = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-    subject: Yup.string().required('Subject is required'),
-    message: Yup.string().required('Message is required'),
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState<ContactData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
-  const formik = useFormik({
-    initialValues: { name: '', email: '', subject: '', message: '' },
-    validationSchema,
-    onSubmit: async (values, { resetForm, setSubmitting, setStatus }) => {
-      try {
-        await axios.post(`${renderURL}/api/contacts`, { data: values });
-        resetForm();
-        setStatus({ success: true });
-      } catch (error) {
-        console.error('Error sending message:', error);
-        setStatus({ error: 'Failed to send message. Please try again.' });
-      } finally {
-        setSubmitting(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const payload = {
+        data: {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+      };
+
+      console.log('Submitting payload:', payload);
+
+      const response = await axios.post(`${API_URL}/api/contacts`, payload, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Server response:', response.data);
+
+      if (response.status >= 200 && response.status < 300) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        setSubmitStatus('error');
       }
-    },
-  });
-
-  useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Detailed error:', {
+          message: error.message,
+          status: error.response?.status,
+          data: error.response?.data,
+          headers: error.response?.headers,
+        });
+      }
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <div className="relative min-h-screen">
-      {/* Show spinner while loading */}
-      {isLoading ? (
-        <div className="flex justify-center items-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-        </div>
-      ) : (
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="relative z-10 max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8"
-        >
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h1>
-            <p className="text-xl text-gray-600">Feel free to reach out for collaborations or just a friendly hello</p>
-          </motion.div>
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
+      <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
+        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">Contact Me</h2>
 
-          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div variants={itemVariants} className="bg-white p-8 rounded-xl shadow-lg">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-800">Send Me a Message</h2>
+        {submitStatus === 'success' && (
+          <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
+            Thank you for your message! We'll get back to you soon.
+          </div>
+        )}
 
-              {formik.status?.success && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={successVariants}
-            className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg"
-          >
-            Thank you! Your message has been sent successfully.
-          </motion.div>
-              )}
+        {submitStatus === 'error' && (
+          <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
+            There was an error submitting your form. Please try again.
+          </div>
+        )}
 
-              {formik.status?.error && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={successVariants}
-            className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg"
-          >
-            {formik.status.error}
-          </motion.div>
-              )}
-
-              <form onSubmit={formik.handleSubmit}>
-          <motion.div variants={itemVariants} className="mb-6">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-2">
+            <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-300">
               Name
             </label>
-            <motion.input
+            <input
+              type="text"
               id="name"
               name="name"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              whileFocus="focus"
-              variants={formFieldVariants}
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {formik.touched.name && formik.errors.name && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-1 text-sm text-red-600">
-                {formik.errors.name}
-              </motion.p>
-            )}
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="space-y-2">
+            <label htmlFor="email" className="block text-sm sm:text-base font-medium text-gray-300">
               Email
             </label>
-            <motion.input
+            <input
+              type="email"
               id="email"
               name="email"
-              type="email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              whileFocus="focus"
-              variants={formFieldVariants}
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {formik.touched.email && formik.errors.email && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-1 text-sm text-red-600">
-                {formik.errors.email}
-              </motion.p>
-            )}
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="mb-6">
-            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="space-y-2">
+            <label htmlFor="subject" className="block text-sm sm:text-base font-medium text-gray-300">
               Subject
             </label>
-            <motion.input
+            <input
+              type="text"
               id="subject"
               name="subject"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.subject}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              whileFocus="focus"
-              variants={formFieldVariants}
+              value={formData.subject}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {formik.touched.subject && formik.errors.subject && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-1 text-sm text-red-600">
-                {formik.errors.subject}
-              </motion.p>
-            )}
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="mb-6">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="space-y-2">
+            <label htmlFor="message" className="block text-sm sm:text-base font-medium text-gray-300">
               Message
             </label>
-            <motion.textarea
+            <textarea
               id="message"
               name="message"
+              value={formData.message}
+              onChange={handleChange}
               rows={5}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.message}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              whileFocus="focus"
-              variants={formFieldVariants}
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {formik.touched.message && formik.errors.message && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-1 text-sm text-red-600">
-                {formik.errors.message}
-              </motion.p>
-            )}
-          </motion.div>
+          </div>
 
-          <motion.button
+          <button
             type="submit"
-            disabled={formik.isSubmitting}
-            className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center justify-center"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
+            disabled={isSubmitting}
+            className={`w-full py-3 px-6 rounded-md text-white font-medium ${
+              isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+            } transition-colors`}
           >
-            {formik.isSubmitting ? (
-              'Sending...'
-            ) : (
-              <>
-                Send Message
-              </>
-            )}
-          </motion.button>
-              </form>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      )}
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
