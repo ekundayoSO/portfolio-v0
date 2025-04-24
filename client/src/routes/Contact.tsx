@@ -1,16 +1,10 @@
-
 import { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { ContactData } from '../types/Contact';
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
-interface ContactData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactData>({
@@ -21,7 +15,6 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -34,7 +27,6 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
       const payload = {
@@ -53,7 +45,6 @@ const Contact: React.FC = () => {
       });
 
       if (response.status >= 200 && response.status < 300) {
-        setSubmitStatus('success');
         setFormData({
           name: '',
           email: '',
@@ -68,7 +59,6 @@ const Contact: React.FC = () => {
           confirmButtonColor: '#3b82f6',
         });
       } else {
-        setSubmitStatus('error');
         Swal.fire({
           title: 'Error!',
           text: 'There was an error submitting your form. Please try again.',
@@ -86,7 +76,6 @@ const Contact: React.FC = () => {
           headers: error.response?.headers,
         });
       }
-      setSubmitStatus('error');
       Swal.fire({
         title: 'Error!',
         text: 'There was an error submitting your form. Please try again.',
@@ -103,19 +92,6 @@ const Contact: React.FC = () => {
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
       <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
         <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">Contact Me</h2>
-
-        {submitStatus === 'success' && (
-          <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
-            Thank you for your message! We'll get back to you soon.
-          </div>
-        )}
-
-        {submitStatus === 'error' && (
-          <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
-            There was an error submitting your form. Please try again.
-          </div>
-        )}
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-300">
