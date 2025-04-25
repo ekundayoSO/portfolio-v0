@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { ContactData } from '../types/Contact';
+import '../index.css';
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -57,6 +58,9 @@ const Contact: React.FC = () => {
           icon: 'success',
           confirmButtonText: 'OK',
           confirmButtonColor: '#3b82f6',
+          customClass: {
+            confirmButton: 'my-custom-button-class', 
+          },
         });
       } else {
         Swal.fire({
@@ -65,6 +69,9 @@ const Contact: React.FC = () => {
           icon: 'error',
           confirmButtonText: 'OK',
           confirmButtonColor: '#3b82f6',
+          customClass: {
+            confirmButton: 'my-custom-button-class',
+          },
         });
       }
     } catch (error) {

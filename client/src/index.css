@@ -98,3 +98,7 @@ body {
   font-weight: 700;
   font-style: italic;
 }
+
+.my-custom-button-class {
+  padding: 12px 24px;
+}
