@@ -56,22 +56,16 @@ const Contact: React.FC = () => {
           title: 'Success!',
           text: "Thank you for your message! We'll get back to you soon.",
           icon: 'success',
-          confirmButtonText: 'OK',
+          confirmButtonText: '<span style="padding: 0 10px;">OK</span>',
           confirmButtonColor: '#3b82f6',
-          customClass: {
-            confirmButton: 'my-custom-button-class', 
-          },
         });
       } else {
         Swal.fire({
           title: 'Error!',
           text: 'There was an error submitting your form. Please try again.',
           icon: 'error',
-          confirmButtonText: 'OK',
+          confirmButtonText: '<span style="padding: 0 10px;">OK</span>',
           confirmButtonColor: '#3b82f6',
-          customClass: {
-            confirmButton: 'my-custom-button-class',
-          },
         });
       }
     } catch (error) {
