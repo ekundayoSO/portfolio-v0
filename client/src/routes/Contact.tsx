@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
           title: 'Success!',
           text: "Thank you for your message! We'll get back to you soon.",
           icon: 'success',
-          confirmButtonText: '<span style="padding: 0 10px;">OK</span>',
+          confirmButtonText: '<span style="padding: 0 20px;">OK</span>',
           confirmButtonColor: '#3b82f6',
         });
       } else {
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
           title: 'Error!',
           text: 'There was an error submitting your form. Please try again.',
           icon: 'error',
-          confirmButtonText: '<span style="padding: 0 10px;">OK</span>',
+          confirmButtonText: '<span style="padding: 0 20px;">OK</span>',
           confirmButtonColor: '#3b82f6',
         });
       }
