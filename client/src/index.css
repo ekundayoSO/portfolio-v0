@@ -99,24 +99,23 @@ body {
   font-style: italic;
 }
 
+
 .lobster-name {
   font-family: 'Lobster Two', cursive;
   font-style: italic;
   font-size: 2rem;
-  animation: reloadAnimation 5s ease-in-out infinite;
+  display: inline-block; 
+  animation: moveRight 10s infinite;
 }
 
-@keyframes reloadAnimation {
+@keyframes moveRight {
   0% {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateX(0);
   }
   50% {
-    opacity: 0.5;
-    transform: scale(1.1);
+    transform: translateX(50px);
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateX(0); 
   }
 }
