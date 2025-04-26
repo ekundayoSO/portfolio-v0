@@ -11,8 +11,8 @@ const Home: React.FC = () => {
         }}
       >
         <div className="text-center bg-black bg-opacity-50 p-8 rounded-lg">
-          <h1 className="text-xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-            Hi, I'm <span className="text-blue-400 lobster-name">Sulaimon Ekundayo</span>
+          <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold text-white mb-4 lobster-name">
+            Hi, I'm <span className="text-blue-400">Sulaimon Ekundayo</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8">
             Full-Stack Developer | Software QA Engineer | Tech Enthusiast
@@ -35,7 +35,8 @@ const Home: React.FC = () => {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-white mb-4">Full-Stack Development</h3>
               <p className="text-gray-300">
-                I build scalable and high-performance web applications using modern technologies like React, Node.js, Express.js and PHP, Symfony.
+                I build scalable and high-performance web applications using modern technologies like React, Node.js,
+                Express.js and PHP, Symfony.
               </p>
             </div>
 
