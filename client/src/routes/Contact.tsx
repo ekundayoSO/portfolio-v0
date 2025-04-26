@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
       <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
-        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">Contact Me</h2>
+        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-bold text-blue-400 mb-6">Get in Touch</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-300">

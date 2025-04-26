@@ -99,3 +99,9 @@ body {
   font-style: italic;
 }
 
+.lobster-name {
+  font-family: 'Lobster Two', serif;
+  font-style: italic;
+  transition: all 0.3s ease-in-out;
+  font-size: 2rem;
+}
