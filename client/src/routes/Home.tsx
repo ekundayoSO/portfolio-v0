@@ -11,7 +11,7 @@ const Home: React.FC = () => {
         }}
       >
         <div className="text-center bg-black bg-opacity-50 p-8 rounded-lg">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 lobster-name">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 lobster-name pb-1">
             Hi, I'm <span className="text-blue-400">Sulaimon Ekundayo</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8">
