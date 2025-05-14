@@ -40,7 +40,7 @@ const BlogPostsDetails: React.FC = () => {
   if (!blog) return <div className="text-center mt-8">Blog not found</div>;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-gray-900 text-white">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         {blog.coverImage?.[0]?.url && (
           <img

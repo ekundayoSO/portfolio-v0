@@ -52,16 +52,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/resume"
-                className={({ isActive }) =>
-                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
-                }
-              >
-                Resume
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="/projects"
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
@@ -78,6 +68,16 @@ const Header = () => {
                 }
               >
                 Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/resume"
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Resume
               </NavLink>
             </li>
             <li>
