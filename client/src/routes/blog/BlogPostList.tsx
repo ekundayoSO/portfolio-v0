@@ -15,6 +15,7 @@ const BlogPosts: React.FC = () => {
     const getBlogs = async () => {
       try {
         const data = await fetchBlogs(locale);
+        console.log('Response:', data);
         setBlogs(data.data);
       } catch (err) {
         console.log(err);
