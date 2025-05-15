@@ -53,8 +53,8 @@ const BlogPosts: React.FC = () => {
             )}
             <div className="p-6 flex flex-col flex-grow">
               <div className="flex justify-between mb-4">
-                <p>{blog.author}</p>
-                <p>{blog.date}</p>
+                <p className='text-sm'>{blog.author}</p>
+                <p className='text-sm'>{blog.date}</p>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-blue-400">{blog.title}</h3>
               <p className="text-sm text-gray-300 mb-4 flex-grow">{blog.description}</p>

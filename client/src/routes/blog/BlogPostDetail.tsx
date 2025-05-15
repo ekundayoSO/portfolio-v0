@@ -57,12 +57,7 @@ const BlogPostsDetails: React.FC = () => {
           <img src={blog.coverImage[0].url} alt={blog.title} className="w-full h-64 sm:h-80 md:h-96 object-cover" />
         )}
         <div className="p-6">
-          <div className="flex justify-between mb-4 text-gray-300">
-            <p>{blog.author}</p>
-            <p>{blog.date}</p>
-          </div>
           <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-blue-400">{blog.title}</h1>
-
           <div className="prose prose-invert max-w-none">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
