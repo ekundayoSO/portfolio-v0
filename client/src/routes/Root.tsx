@@ -7,10 +7,10 @@ const Root: React.FC = () => {
   return (
     <div className="d-flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1">
+      <main className="flex-grow">
         <Outlet />
       </main>
-      <BackToTopButton />
+        <BackToTopButton />
       <Footer />
     </div>
   );
