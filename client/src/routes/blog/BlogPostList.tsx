@@ -3,12 +3,13 @@ import { fetchBlogs } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Blog } from '../../types/Blogs';
+import { ImSpinner4 } from 'react-icons/im';
 
 const BlogPosts: React.FC = () => {
   const { i18n } = useTranslation();
   const locale = i18n.language;
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -27,7 +28,18 @@ const BlogPosts: React.FC = () => {
     getBlogs();
   }, [locale]);
 
-  if (loading) return <div className="text-center mt-8">Loading...</div>;
+  if (loading)
+    return (
+      <div className="text-center mt-8">
+        {loading && (
+          <div className="loading-spinner">
+            <p>Loading blog...</p>
+            {/* spinner */}
+            <ImSpinner4 className="animate-spin text-yellow-400 text-4xl" />
+          </div>
+        )}
+      </div>
+    );
   if (error) return <div className="text-center mt-8 text-red-500">{error}</div>;
 
   return (
@@ -40,7 +52,7 @@ const BlogPosts: React.FC = () => {
               <img src={blog.coverImage[0].url} alt={blog.title} className="w-full h-48 object-cover" />
             )}
             <div className="p-6 flex flex-col flex-grow">
-              <div className='flex justify-between mb-4'>
+              <div className="flex justify-between mb-4">
                 <p>{blog.author}</p>
                 <p>{blog.date}</p>
               </div>

@@ -6,15 +6,18 @@ import remarkGfm from 'remark-gfm'; // For GitHub Flavored Markdown support
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Blog } from '../../types/Blogs';
+import { ImSpinner4 } from 'react-icons/im';
+
 
 const BlogPostsDetails: React.FC = () => {
   const { i18n } = useTranslation();
   const locale = i18n.language;
   const { documentId } = useParams<{ documentId: string }>();
   const [blog, setBlog] = useState<Blog | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const getBlog = async () => {
@@ -35,7 +38,15 @@ const BlogPostsDetails: React.FC = () => {
     getBlog();
   }, [locale, documentId]);
 
-  if (loading) return <div className="text-center mt-8">Loading...</div>;
+  if (loading) return <div className="text-center mt-8">
+    {loading && (
+      <div className="loading-spinner">
+        <p>Loading blog...</p>
+        {/* spinner */}
+        <ImSpinner4 className="animate-spin text-yellow-400 text-4xl" />
+      </div>
+    )}
+  </div>;
   if (error) return <div className="text-center mt-8 text-red-500">{error}</div>;
   if (!blog) return <div className="text-center mt-8">Blog not found</div>;
 
