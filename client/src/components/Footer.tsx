@@ -29,10 +29,10 @@ export const Footer = () => {
             <FaFacebook />
           </a>
 
-          <a href="#https://www.instagram.com/druidfi/" target="_blank" rel="noreferrer">
+          <a href="#" target="_blank" rel="noreferrer">
             <FaInstagramSquare />
           </a>
-          <a href="#https://x.com/druidfi" target="_blank" rel="noreferrer">
+          <a href="#" target="_blank" rel="noreferrer">
             <FaSquareXTwitter />
           </a>
         </div>
