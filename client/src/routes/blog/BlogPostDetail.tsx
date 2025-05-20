@@ -51,7 +51,7 @@ const BlogPostsDetails: React.FC = () => {
 
   return (
     <div className="w-full space-y-8 px-2 sm:px-8 py-8 mt-8 bg-gray-900 text-white">
-      <div className="max-w-4xl mx-auto bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      <div className="max-w-6xl mx-auto bg-gray-800 shadow-lg rounded-lg overflow-hidden">
         {blog.coverImage?.[0]?.url && (
           <img src={blog.coverImage[0].url} alt={blog.title} className="w-full h-64 sm:h-80 md:h-96 object-cover" />
         )}
