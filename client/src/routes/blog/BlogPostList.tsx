@@ -44,7 +44,7 @@ const BlogPosts: React.FC = () => {
   return (
     <div className="w-full space-y-8 px-4 sm:px-8 py-8 mt-8 bg-gray-900 text-white">
       <h1 className="text-center text-2xl sm:text-3xl font-bold mb-2 text-blue-400">Blogs</h1>
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.map((blog) => (
           <div key={blog.documentId} className="bg-gray-800 shadow-lg rounded-lg overflow-hidden flex flex-col">
             {blog.coverImage?.[0]?.url && (

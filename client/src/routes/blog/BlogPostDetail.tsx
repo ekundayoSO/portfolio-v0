@@ -50,10 +50,10 @@ const BlogPostsDetails: React.FC = () => {
   if (!blog) return <div className="text-center mt-8">Blog not found</div>;
 
   return (
-    <div className="w-full space-y-8 px-4 sm:px-8 py-8 mt-8 bg-gray-900 text-white">
+    <div className="w-full space-y-8 px-2 sm:px-8 py-8 mt-8 bg-gray-900 text-white">
       <div className="max-w-5xl mx-auto bg-gray-800 shadow-lg rounded-lg overflow-hidden">
         {blog.coverImage?.[0]?.url && (
-          <img src={blog.coverImage[0].url} alt={blog.title} className="w-full h-64 sm:h-80 md:h-96 object-cover" />
+          <img src={blog.coverImage[0].url} alt={blog.title} className="w-full h-72 sm:h-80 md:h-96 object-cover" />
         )}
         <div className="p-6">
           <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-blue-400">{blog.title}</h1>
