@@ -61,8 +61,8 @@ const Home: React.FC = () => {
       </div>
 
       {/* Call-to-Action Section */}
-      <div className="bg-gray-800 py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="bg-gray-800 py-12 mb-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-4">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Let's Build Something Amazing Together</h2>
           <p className="text-lg text-gray-300 mb-8">
             Whether you need a full-stack developer, a QA engineer, or just want to chat about tech, I'd love to hear
