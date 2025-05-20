@@ -41,7 +41,6 @@ const BlogPostsDetails: React.FC = () => {
       <div className="text-center mt-8">
         {loading && (
           <div className="loading-spinner">
-            <p>Loading blog...</p>
             <ImSpinner4 className="animate-spin text-yellow-400 text-4xl text-center" />
           </div>
         )}
