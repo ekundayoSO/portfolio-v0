@@ -5,9 +5,9 @@ import BackToTopButton from '../components/BackToTopButton';
 
 const Root: React.FC = () => {
   return (
-    <div className="d-flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-1">
         <Outlet />
       </main>
         <BackToTopButton />
