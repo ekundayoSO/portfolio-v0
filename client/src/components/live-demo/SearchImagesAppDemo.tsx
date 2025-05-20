@@ -8,7 +8,6 @@ const SearchImagesAppDemo: React.FC = () => {
     <div className="demo-container">
       {isLoading && (
         <div className="loading-spinner">
-          <p>Loading demo...</p>
           {/* spinner */}
           <ImSpinner4 className="animate-spin text-yellow-400 text-4xl" />
         </div>
