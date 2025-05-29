@@ -9,7 +9,6 @@ export const Footer = () => {
       <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center px-4 md:px-8">
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left mb-4 md:mb-0">
           <span className="mb-2 md:mb-0">
-            Rasinkatu 20 <br />
             01360 Vantaa <br />
             Finland <br />
           </span>
@@ -22,10 +21,10 @@ export const Footer = () => {
         </div>
 
         <div className="flex gap-3 text-2xl">
-          <a href="https://www.linkedin.com/in/sulaimonekundayo/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/sulaimonekundayo" target="_blank" rel="noreferrer">
             <FaLinkedin />
           </a>
-          <a href="https://www.facebook.com/noble.ekundayo/" target="_blank" rel="noreferrer">
+          <a href="https://www.facebook.com/noble.ekundayo" target="_blank" rel="noreferrer">
             <FaFacebook />
           </a>
 
