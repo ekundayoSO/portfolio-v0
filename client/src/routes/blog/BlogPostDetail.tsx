@@ -71,12 +71,12 @@ const BlogPostsDetails: React.FC = () => {
                     }}
                   />
                 ),
-                ul: ({ ...props }) => <ul {...props} className="list-disc list-inside mb-4 pl-6" />,
-                ol: ({ ...props }) => <ol {...props} className="list-decimal list-inside mb-4 pl-6" />,
+                ul: ({ ...props }) => <ul {...props} className="list-disc list-inside mb-2 pl-6" />,
+                ol: ({ ...props }) => <ol {...props} className="list-decimal list-inside mb-2 pl-6" />,
                 li: ({ ...props }) => <li {...props} className="mb-2 pl-2" />,
                 h2: ({ ...props }) => <h2 {...props} className="text-xl font-semibold mt-6 mb-4 text-blue-400" />,
                 h3: ({ ...props }) => <h3 {...props} className="text-lg font-semibold mt-5 mb-3 text-blue-400" />,
-                p: ({ ...props }) => <p {...props} className="mb-4 text-gray-300" />,
+                p: ({ ...props }) => <p {...props} className="mb-2 text-gray-300" />,
                 a: ({ ...props }) => <a {...props} className="text-blue-400 hover:text-blue-500" />,
                 blockquote: ({ ...props }) => (
                   <blockquote {...props} className="border-l-4 border-blue-400 pl-4 italic my-4" />
