@@ -4,19 +4,26 @@ import { FaTrophy, FaSadTear } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 
 const GuessAndWin = () => {
-    const [numberInput, setNumberInput] = React.useState<number>(0);
+    const [numberInput, setNumberInput] = React.useState<string>("");
+    const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 100) + 1);
 
     const guessNumber = () => {
-        const randomNumber = Math.floor(Math.random() * 100) + 1;
-        if (numberInput) {
-            const guess = parseInt(numberInput.toString(), 10);
-            if (guess === randomNumber) {
-                showWinAlert();
-                
-            } else {
-                showLostAlert();
-            }
+        if (!numberInput) {
+            toast.warn("Please enter a number between 1 and 100.");
+            return;
         }
+        const guess = parseInt(numberInput, 10);
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+            toast.warn("Please enter a valid number between 1 and 100.");
+            return;
+        }
+        if (guess === randomNumber) {
+            showWinAlert();
+            setRandomNumber(Math.floor(Math.random() * 100) + 1); // Reset for next round
+        } else {
+            showLostAlert();
+        }
+        setNumberInput(""); // Clear input after guess
     }
 
     // Call this function when the user wins
@@ -73,7 +80,7 @@ const GuessAndWin = () => {
             min={1}
             max={100}
             value={numberInput}
-            onChange={(e) => setNumberInput(Number(e.target.value))}
+            onChange={(e) => setNumberInput(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
             placeholder="Your guess"
             />
