@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaTrophy, FaSadTear } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 
 const GuessAndWin = () => {
   // State to store the user's number input
-  const [numberInput, setNumberInput] = React.useState<string>('');
+  const [numberInput, setNumberInput] = useState<string>('');
   // State to store the randomly generated number (between 1 and 100)
-  const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 100) + 1);
+  const [randomNumber, setRandomNumber] = useState<number>(() => Math.floor(Math.random() * 100) + 1);
 
-    // Effect to reset the random number when the component mounts
-  const guessNumber = () => {
+  // Handles the guess submission
+  const guessNumber = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     // Check if the input field is empty
     if (!numberInput) {
       toast.warn('Please enter a number between 1 and 100.');
@@ -102,31 +103,33 @@ const GuessAndWin = () => {
         <p className="text-lg text-gray-600 mb-6 text-center">
           I'm thinking of a number between 1 and 100. Can you guess it?
         </p>
-        <div className="mb-6">
-          <label htmlFor="guess-input" className="block text-gray-700 font-semibold mb-2">
-            Enter your guess (1-100):
-          </label>
-          <input
-            id="guess-input"
-            type="number"
-            min={1}
-            max={100}
-            value={numberInput}
-            onChange={(e) => setNumberInput(e.target.value)}
-            className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-200 transition duration-200 ease-in-out text-lg"
-            placeholder="Your guess"
-            aria-label="Number Guess Input"
-          />
-        </div>
-        <button
-          onClick={guessNumber}
-          className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transition duration-300 ease-in-out transform hover:scale-105"
-        >
-          Submit Guess
-        </button>
+        <form onSubmit={guessNumber}>
+          <div className="mb-6">
+            <label htmlFor="guess-input" className="block text-gray-700 font-semibold mb-2">
+              Enter your guess (1-100):
+            </label>
+            <input
+              id="guess-input"
+              type="number"
+              min={1}
+              max={100}
+              value={numberInput}
+              onChange={(e) => setNumberInput(e.target.value)}
+              className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-200 transition duration-200 ease-in-out text-lg"
+              placeholder="Your guess"
+              aria-label="Number Guess Input"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Submit Guess
+          </button>
+        </form>
       </div>
     </div>
   );
-}
+};
 
 export default GuessAndWin;
