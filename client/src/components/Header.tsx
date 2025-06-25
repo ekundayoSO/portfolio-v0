@@ -89,6 +89,16 @@ const Header = () => {
               >
                 Contact
               </NavLink>
+            </li>{' '}
+            <li>
+              <NavLink
+                to="/playground"
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Playground
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -162,6 +172,17 @@ const Header = () => {
                 }
               >
                 Contact
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/playground"
+                onClick={toggleMenu}
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
+                }
+              >
+                Playground
               </NavLink>
             </li>
           </ul>

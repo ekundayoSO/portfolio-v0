@@ -8,6 +8,7 @@ import Home from './routes/Home';
 import BlogPostList from './routes/blog/BlogPostList';
 import BlogPostDetail from './routes/blog/BlogPostDetail';
 import Contact from './routes/Contact';
+import GuessAndWin from './routes/playground/GuessAndWin';
 
 function App() {
   const router = createBrowserRouter([
@@ -24,6 +25,7 @@ function App() {
         { path: '/blog', element: <BlogPostList /> },
         { path: '/blog/:documentId', element: <BlogPostDetail /> },
         { path: '/contact', element: <Contact /> },
+        { path: '/playground', element: <GuessAndWin /> },
       ],
     },
   ]);
