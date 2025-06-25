@@ -1,14 +1,15 @@
+
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-// Main GuessAndWin component to encapsulate the game and ToastContainer
+
 const GuessAndWin = () => {
   // State to store the user's number input
   const [numberInput, setNumberInput] = React.useState<string>('');
   // State to store the randomly generated number (between 1 and 15)
   const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 15) + 1);
 
-    // Effect to reset the random number when the component mounts
+  // Effect to reset the random number when the component mounts
   const guessNumber = () => {
     // Check if the input field is empty
     if (!numberInput) {
@@ -44,13 +45,12 @@ const GuessAndWin = () => {
   const showWinAlert = () => {
     toast.success(
       <span style={{ display: 'flex', alignItems: 'center' }}>
-        {/* Replaced FaTrophy with an emoji to avoid compilation issues */}
         <span style={{ marginRight: 8, fontSize: 24 }}>🏆</span>
         <strong>Congratulations! You won!</strong>
       </span>,
       {
         position: 'top-center', // Position the toast at the top center
-        autoClose: 3000, // Close after 3 seconds
+        autoClose: 5000, // Close after 5 seconds
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -74,13 +74,12 @@ const GuessAndWin = () => {
   const showLostAlert = () => {
     toast.error(
       <span style={{ display: 'flex', alignItems: 'center' }}>
-        {/* Replaced FaSadTear with an emoji to avoid compilation issues */}
         <span style={{ marginRight: 8, fontSize: 24 }}>😢</span>
         <strong>Sorry, you lost. Try again!</strong>
       </span>,
       {
         position: 'top-center', // Position the toast at the top center
-        autoClose: 3000, // Close after 3 seconds
+        autoClose: 5000, // Close after 5 seconds
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -99,14 +98,14 @@ const GuessAndWin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 font-sans">
-      <div className="max-w-md w-full p-8 bg-white rounded-xl shadow-lg">
-        <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Guess the Number!</h1>
-        <p className="text-lg text-gray-600 mb-6 text-center">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
+      <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
+        <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-400">Guess the Number!</h1>
+        <p className="text-lg text-gray-300 mb-6 text-center">
           I'm thinking of a number between 1 and 15. Can you guess it?
         </p>
         <div className="mb-6">
-          <label htmlFor="guess-input" className="block text-gray-700 font-semibold mb-2">
+          <label htmlFor="guess-input" className="block text-gray-300 font-semibold mb-2">
             Enter your guess (1-15):
           </label>
           <input
@@ -116,19 +115,18 @@ const GuessAndWin = () => {
             max={15}
             value={numberInput}
             onChange={(e) => setNumberInput(e.target.value)}
-            className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-200 transition duration-200 ease-in-out text-lg"
+            className="w-full px-5 py-3 border border-gray-600 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition duration-200 ease-in-out text-lg bg-gray-700 text-gray-300"
             placeholder="Your guess"
             aria-label="Number Guess Input"
           />
         </div>
         <button
           onClick={guessNumber}
-          className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transition duration-300 ease-in-out transform hover:scale-105"
+          className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105"
         >
           Submit Guess
         </button>
       </div>
-      {/* ToastContainer is essential for displaying the toast messages */}
       <ToastContainer />
     </div>
   );
