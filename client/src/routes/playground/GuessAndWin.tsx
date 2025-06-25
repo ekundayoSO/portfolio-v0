@@ -59,14 +59,32 @@ const GuessAndWin = () => {
 
   return (
     <div>
-        <h1>Guess a number and win!
+        <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-lg shadow-lg">
+          <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+            Guess a Number and Win!
+          </h1>
+          <div className="mb-4">
+            <label htmlFor="guess-input" className="block text-gray-700 font-medium mb-2">
+            Enter your guess (1-100):
+            </label>
             <input
-                type="number"
-                value={numberInput}
-                onChange={(e) => setNumberInput(Number(e.target.value))}
+            id="guess-input"
+            type="number"
+            min={1}
+            max={100}
+            value={numberInput}
+            onChange={(e) => setNumberInput(Number(e.target.value))}
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="Your guess"
             />
-            <button onClick={guessNumber}>Guess</button>
-        </h1>
+          </div>
+          <button
+            onClick={guessNumber}
+            className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+          >
+            Submit Guess
+          </button>
+        </div>
     </div>
   )
 }
