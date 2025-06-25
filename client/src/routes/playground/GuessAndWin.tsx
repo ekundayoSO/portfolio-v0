@@ -98,7 +98,7 @@ const GuessAndWin = () => {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
+    <div className="w-full h-screen px-4 sm:px-6 lg:px-8 py-8 bg-gray-900 text-white">
       <div className="max-w-2xl mx-auto bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
         <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-400">Guess the Number!</h1>
         <p className="text-lg text-gray-300 mb-6 text-center">
