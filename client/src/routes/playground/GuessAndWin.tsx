@@ -4,8 +4,11 @@ import { toast, ToastContainer } from 'react-toastify';
 const GuessAndWin = () => {
   const [numberInput, setNumberInput] = React.useState<string>('');
   const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 15) + 1);
+  const [showRandom, setShowRandom] = React.useState<boolean>(false);
 
   const guessNumber = () => {
+    setShowRandom(true);
+
     if (!numberInput) {
       toast.warn('Please enter a number between 1 and 15.');
       return;
@@ -21,6 +24,7 @@ const GuessAndWin = () => {
     if (guess === randomNumber) {
       showWinAlert();
       setRandomNumber(Math.floor(Math.random() * 15) + 1);
+      setShowRandom(false); // Hide after win and reset
     } else {
       showLostAlert();
     }
@@ -83,9 +87,11 @@ const GuessAndWin = () => {
       <div className="max-w-2xl w-full bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
         <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-400">Guess the Number!</h1>
         <p className="text-lg text-gray-300 mb-6 text-center">
-          I'm thinking of a number between 1 and 15. Can you guess it? Mine number is: <span className='font-bold'>{randomNumber}!</span>
-
+          I'm thinking of a number between 1 and 15. Can you guess it?
         </p>
+        {showRandom && (
+          <div className="mt-6 text-center text-xl text-yellow-400 font-bold">The number was: {randomNumber}</div>
+        )}
         <div className="mb-6">
           <label htmlFor="guess-input" className="block text-gray-300 font-semibold mb-2">
             Enter your guess (1-15):
