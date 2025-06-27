@@ -8,15 +8,6 @@ const GuessAndWin = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const guessNumber = () => {
-    setShowRandom(true);
-
-    // Clear any previous timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    // Set timeout to clear showRandom after 3s
-    timeoutRef.current = setTimeout(() => setShowRandom(false), 3000);
-
     if (!numberInput) {
       toast.warn('Please enter a number between 1 and 15.');
       return;
@@ -28,6 +19,15 @@ const GuessAndWin = () => {
       toast.warn('Please enter a valid number between 1 and 15.');
       return;
     }
+
+    setShowRandom(true);
+
+    // Clear any previous timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    // Set timeout to clear showRandom after 3s
+    timeoutRef.current = setTimeout(() => setShowRandom(false), 3000);
 
     if (guess === randomNumber) {
       showWinAlert();
