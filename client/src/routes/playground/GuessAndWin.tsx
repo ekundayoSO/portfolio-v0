@@ -20,22 +20,26 @@ const GuessAndWin = () => {
       return;
     }
 
-    setShowRandom(true);
-
-    // Clear any previous timeout
+    // Hide previous random number and clear timeout
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    // Set timeout to clear showRandom after 3s
+    setShowRandom(false);
+
+    // Show the current random number
+    setShowRandom(true);
+
+    // Set timeout to hide it after 3s
     timeoutRef.current = setTimeout(() => setShowRandom(false), 3000);
 
     if (guess === randomNumber) {
       showWinAlert();
-      setRandomNumber(Math.floor(Math.random() * 15) + 1);
     } else {
       showLostAlert();
     }
 
+    // Always generate a new random number for the next round
+    setRandomNumber(Math.floor(Math.random() * 15) + 1);
     setNumberInput('');
   };
 
