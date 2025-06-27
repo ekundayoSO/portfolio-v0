@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 const GuessAndWin = () => {
   const [numberInput, setNumberInput] = React.useState<string>('');
   const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 15) + 1);
   const [showRandom, setShowRandom] = React.useState<boolean>(false);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (showRandom) {
-      timer = setTimeout(() => setShowRandom(false), 3000);
-    }
-    return () => clearTimeout(timer);
-  }, [showRandom]);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const guessNumber = () => {
     setShowRandom(true);
+
+    // Clear any previous timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    // Set timeout to clear showRandom after 3s
+    timeoutRef.current = setTimeout(() => setShowRandom(false), 3000);
 
     if (!numberInput) {
       toast.warn('Please enter a number between 1 and 15.');
@@ -39,6 +39,15 @@ const GuessAndWin = () => {
     setNumberInput('');
   };
 
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   const showWinAlert = () => {
     toast.success(
       <span style={{ display: 'flex', alignItems: 'center' }}>
@@ -47,7 +56,7 @@ const GuessAndWin = () => {
       </span>,
       {
         position: 'top-center',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -72,7 +81,7 @@ const GuessAndWin = () => {
       </span>,
       {
         position: 'top-center',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
