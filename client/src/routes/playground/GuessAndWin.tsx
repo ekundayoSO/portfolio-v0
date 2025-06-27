@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 const GuessAndWin = () => {
   const [numberInput, setNumberInput] = React.useState<string>('');
   const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 15) + 1);
   const [showRandom, setShowRandom] = React.useState<boolean>(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (showRandom) {
+      timer = setTimeout(() => setShowRandom(false), 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [showRandom]);
 
   const guessNumber = () => {
     setShowRandom(true);
@@ -24,7 +32,6 @@ const GuessAndWin = () => {
     if (guess === randomNumber) {
       showWinAlert();
       setRandomNumber(Math.floor(Math.random() * 15) + 1);
-      setShowRandom(false); // Hide after win and reset
     } else {
       showLostAlert();
     }
