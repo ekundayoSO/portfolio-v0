@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { ContactData } from '../types/Contact';
 import ReCAPTCHAImport from 'react-google-recaptcha';
-
 const ReCAPTCHA = ReCAPTCHAImport as unknown as React.FC<any>;
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
@@ -15,9 +14,11 @@ const Contact: React.FC = () => {
     subject: '',
     message: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+  // Add a ref for the ReCAPTCHA component
+  const recaptchaRef = useRef<any>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -58,6 +59,11 @@ const Contact: React.FC = () => {
           subject: '',
           message: '',
         });
+        // Clear the captcha after successful submission
+        setCaptchaValue(null);
+        if (recaptchaRef.current) {
+          recaptchaRef.current.reset();
+        }
         Swal.fire({
           title: 'Success!',
           text: "Thank you for your message! We'll get back to you soon.",
@@ -156,11 +162,12 @@ const Contact: React.FC = () => {
             />
           </div>
           <ReCAPTCHA
+            ref={recaptchaRef}
             sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
             onChange={handleCaptchaChange}
             className="my-4"
           />
-          <div className="text-red-500 text-sm">
+          <div className="text-green-500 text-sm">
             {captchaValue ? '' : 'Please complete the CAPTCHA to submit the form.'}
           </div>
 
