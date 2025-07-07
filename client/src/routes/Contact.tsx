@@ -2,9 +2,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { ContactData } from '../types/Contact';
+import ReCAPTCHAImport from 'react-google-recaptcha';
+
+const ReCAPTCHA = ReCAPTCHAImport as unknown as React.FC<any>;
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
-
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactData>({
@@ -15,6 +17,7 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,6 +25,9 @@ const Contact: React.FC = () => {
       ...prev,
       [name]: value,
     }));
+  };
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,6 +47,7 @@ const Contact: React.FC = () => {
       const response = await axios.post(`${API_URL}/api/contacts`, payload, {
         headers: {
           'Content-Type': 'application/json',
+          'X-Captcha-Token': captchaValue,
         },
       });
 
@@ -147,6 +154,14 @@ const Contact: React.FC = () => {
               rows={5}
               className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+          </div>
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            onChange={handleCaptchaChange}
+            className="my-4"
+          />
+          <div className="text-red-500 text-sm">
+            {captchaValue ? '' : 'Please complete the CAPTCHA to submit the form.'}
           </div>
 
           <button
