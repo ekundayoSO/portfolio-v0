@@ -97,7 +97,7 @@ const Header = () => {
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
               >
-                Fun Zone
+                Games
               </NavLink>
             </li>
           </ul>
@@ -182,7 +182,7 @@ const Header = () => {
                   `hover:text-gray-300 transition-colors ${isActive ? 'text-gray-300 underline' : 'text-white'}`
                 }
               >
-                Fun Zone
+                Games
               </NavLink>
             </li>
           </ul>
