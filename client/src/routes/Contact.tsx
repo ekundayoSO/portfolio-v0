@@ -168,7 +168,7 @@ const Contact: React.FC = () => {
             className="my-4"
           />
           <div className="text-green-500 text-sm">
-            {captchaValue ? '' : 'Please complete the CAPTCHA to submit the form.'}
+            {captchaValue ? '' : ''}
           </div>
 
           <button
