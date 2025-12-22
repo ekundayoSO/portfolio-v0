@@ -145,7 +145,6 @@ const Resume: React.FC = () => {
               </div>
             </div>
           </div>
-          ####
           {/* Experience Card Nomentia */}
           <div className="flip-card h-96">
             <div className="flip-card-inner">
