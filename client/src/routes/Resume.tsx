@@ -72,6 +72,14 @@ const Resume: React.FC = () => {
               <div className="flip-card-back bg-gray-600 p-6 rounded-lg overflow-y-auto">
                 <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-300">
                   <li>
+                    Drove a 100% shift from manual to automated testing practices by implementing Python and Robot
+                    Framework, significantly improving testing efficiency.
+                  </li>
+                  <li>
+                    Designed and managed the CI/CD integration for the Python Robot Framework suite, ensuring continuous
+                    deployment and testing.
+                  </li>
+                  <li>
                     Engineered a Strapi CMS project, streamlining content management through effective design and
                     content type creation.
                   </li>
@@ -100,7 +108,6 @@ const Resume: React.FC = () => {
               </div>
             </div>
           </div>
-
           {/* Experience Card for Druid Oy */}
           <div className="flip-card h-96">
             <div className="flip-card-inner">
@@ -138,48 +145,82 @@ const Resume: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Experience Card for AutoFlow Ltd */}
+          ####
+          {/* Experience Card Nomentia */}
           <div className="flip-card h-96">
             <div className="flip-card-inner">
               {/* Front Side */}
               <div className="text-center flip-card-front bg-gray-700 p-6 rounded-lg">
                 <h3 className="mt-32 text-lg sm:text-xl font-semibold text-blue-400">Software QA Engineer</h3>
-                <h4 className="text-gray-300">AutoFlow Ltd</h4>
-                <h4 className="text-gray-300">January 2022 - July 2023</h4>
+                <h4 className="text-gray-300">Nomentia</h4>
+                <h4 className="text-gray-300">May 2021 - December 2023</h4>
               </div>
 
               {/* Back Side */}
               <div className="flip-card-back bg-gray-600 p-6 rounded-lg overflow-y-auto">
                 <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-300">
                   <li>
-                    Streamlined testing processes by collaborating with development teams to design and execute
-                    comprehensive manual and automated test plans.
+                    Improved overall testing efficiency by 35% by utilizing Cucumber BDD/DDT framework (Java/Page Object
+                    Model) to maintain over 700 regression suites.
                   </li>
                   <li>
-                    Reduced testing time by over 70% through the automation of test cases using Selenium WebDriver and
-                    Java Cucumber.
+                    Converted over 300 manual test cases into automated tests, achieving a 60% reduction in manual
+                    testing effort.
                   </li>
                   <li>
-                    Ensured stable software releases by conducting thorough regression, system, and integration testing.
+                    Executed Web services testing using Postman for manual verification and REST-Assured for robust
+                    Restful API automation.
                   </li>
                   <li>
-                    Contributed to significant improvements in QA processes and team capabilities by mentoring junior QA
-                    members.
+                    Conducted daily smoke testing for 120+ test cases, ensuring early issue identification and improving
+                    overall system reliability.
+                  </li>
+                  <li>
+                    Enhanced the test automation framework by implementing reusable methods and integrating best
+                    practices.
                   </li>
                 </ul>
               </div>
             </div>
           </div>
+          {/* Experience Card for AutoFlow Ltd */}
+          <div className="flip-card h-96">
+            <div className="flip-card-inner">
+              {/* Front Side */}
+              <div className="text-center flip-card-front bg-gray-700 p-6 rounded-lg">
+                <h3 className="mt-32 text-lg sm:text-xl font-semibold text-blue-400">Software Test Automation Engineer</h3>
+                <h4 className="text-gray-300">Unikie</h4>
+                <h4 className="text-gray-300">August 2019 - April 2021</h4>
+              </div>
 
+              {/* Back Side */}
+              <div className="flip-card-back bg-gray-600 p-6 rounded-lg overflow-y-auto">
+                <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-300">
+                  <li>
+                    Maintained a regression suite of 500+ test cases and executed daily smoke tests to ensure
+                    high-quality releases.
+                  </li>
+                  <li>
+                    Designed and executed test cases using black box and gray box testing techniques for web-based
+                    applications.
+                  </li>
+                  <li>Collaborated with development teams to analyse requirements and provide actionable feedback.</li>
+                  <li>
+                    Contributed to high-quality releases by executing daily smoke tests and maintaining a large
+                    regression suite of 500+ test cases
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           {/* Experience Card for INITS Ltd */}
           <div className="flip-card h-96">
             <div className="flip-card-inner">
               {/* Front Side */}
               <div className="text-center flip-card-front bg-gray-700 p-6 rounded-lg">
-                <h3 className="mt-32 text-lg sm:text-xl font-semibold text-blue-400">Software QA Engineer</h3>
-                <h4 className="text-gray-300">INITS Ltd</h4>
-                <h4 className="text-gray-300">September 2020 - December 2021</h4>
+                <h3 className="mt-32 text-lg sm:text-xl font-semibold text-blue-400">Software Test Engineer</h3>
+                <h4 className="text-gray-300">INSTA</h4>
+                <h4 className="text-gray-300">August 2018 - June 2019</h4>
               </div>
 
               {/* Back Side */}
@@ -190,12 +231,24 @@ const Resume: React.FC = () => {
                     accurately reporting defects, and performing compatibility testing.
                   </li>
                   <li>
-                    Facilitated quicker resolution of issues by supporting developers in verifying reported problems and
-                    participating in regression testing after code changes.
+                    Supported developers in verifying reported problems and participating in regression testing to
+                    facilitate quicker issue resolution after code changes.
                   </li>
                   <li>
-                    Contributed to informed decision-making by assisting in test plan preparation and effectively
-                    communicating testing results to stakeholders
+                    Prepared detailed test plans and communicated testing results effectively to stakeholders,
+                    contributing to informed decision-making.
+                  </li>
+                  <li>
+                    Executed compatibility testing across various environments to ensure optimal performance for web and
+                    mobile applications.
+                  </li>
+                  <li>
+                    Participated in extensive regression testing following code changes to verify issue resolution and
+                    prevent the introduction of new defects.
+                  </li>
+                  <li>
+                    Prepared and communicated detailed test plans and final testing results to non-technical
+                    stakeholders for informed decision-making.
                   </li>
                 </ul>
               </div>
@@ -238,7 +291,7 @@ const Resume: React.FC = () => {
           <li>DevOps: Docker, Kubernetes, Jenkins, CI/CD pipelines, Git actions</li>
           <li>Version Control: Git, Github, Bitbucket</li>
           <li>
-            Test Automation: Selenium WebDriver, TestNG, JUnit, Mocha, Cypress, Playwright, Robot Framework, Java
+            Test Automation: Selenium, TestNG, JUnit, Mocha, Cypress, Pytest, Playwright, Robot Framework, Java
             Cucumber
           </li>
           <li>Mobile testing: Appium</li>

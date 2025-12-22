@@ -16,7 +16,9 @@ export const Footer = () => {
           <span>
             sulaimon.ekundayo1@gmail.com
             <br />
-            +358 440 255 576
+            FIN: +358 440 255 576
+            <br />
+            UK: +44 7401 986 379
           </span>
         </div>
 
