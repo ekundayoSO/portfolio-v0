@@ -10,7 +10,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left mb-4 md:mb-0">
           <span className="mb-2 md:mb-0">
             90570 Oulu <br />
-            Finland <br />
+            Mobile <br />
           </span>
 
           <span>
