@@ -18,26 +18,23 @@ const About: React.FC = () => {
           in Accounting, Business Management, and Finance, and I have successfully transitioned into the field of
           Information Technology, where I continue to grow as a well-rounded engineer.
           <br />
-          <br />
           My journey in tech began in Software Quality Assurance, where I gained over three years of experience in
           manual and automated testing, working with tools such as Selenium, Robot Framework, and API testing
           frameworks. This experience gave me a strong foundation in software quality, debugging, and system
-          reliability, and shaped my attention to detail and problem-solving mindset. <br />
-          <br />
+          reliability, and shaped my attention to detail and problem-solving mindset. 
           <br />
           Driven by curiosity and a desire to build better systems, I expanded into Full Stack Development, working with
           technologies such as React, Node.js, Express, PHP, Strapi, and MySQL. I have contributed to real-world
           projects where I not only developed applications but also introduced test automation practices, improved
-          workflows, and collaborated closely with cross-functional teams. <br />
+          workflows, and collaborated closely with cross-functional teams. 
+          <br />
           Currently, I am working as a Data/Cloud Engineer, where I focus on designing and building scalable data
           pipelines and cloud-based solutions using tools like Python, SQL, and cloud platforms (Azure, AWS, GCP). I
-          enjoy transforming raw data into meaningful insights that support decision-making and drive business value.{' '}
-          <br />
+          enjoy transforming raw data into meaningful insights that support decision-making and drive business value.
           <br />
           What sets me apart is my ability to work across the entire technology stack—from data and backend systems to
           frontend development and quality assurance—allowing me to build solutions that are not only functional but
           also reliable, scalable, and efficient. 
-          <br />
           <br />
           Beyond technology, I have a strong passion for agriculture, particularly in crop production and animal
           husbandry. I enjoy reading and learning about the agricultural sector, which fuels my curiosity and long-term
