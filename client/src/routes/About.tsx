@@ -14,21 +14,30 @@ const About: React.FC = () => {
       {/* Responsive text container */}
       <div className="px-4 md:px-20 lg:px-40">
         <p className="text-justify text-sm md:text-base leading-relaxed text-gray-300">
-          Hi, I'm <b className="text-blue-400">Sulaimon Olalekan Ekundayo</b>. I have a diverse background, starting
-          with studies in Accounting, Business Management, and Finance, before making a transition into the world of IT.
-          Initially, I worked as a Software QA Engineer, where I gained a strong understanding of quality assurance
-          practices and testing methodologies. <br />
+          Hi, I'm <b className="text-blue-400">Sulaimon Olalekan Ekundayo</b>. I come from a diverse academic background
+          in Accounting, Business Management, and Finance, and I have successfully transitioned into the field of
+          Information Technology, where I continue to grow as a well-rounded engineer.
           <br />
-          Currently, I am focused on my journey to become a full-stack developer, diving deep into technologies like
-          Node.js, Express.js, React, and more. I enjoy blending my analytical skills with coding to solve complex
-          problems, and I’m always eager to learn and grow in the ever-evolving tech landscape. My unique journey has
-          equipped me with a broad perspective, which I apply to both development and problem-solving.
+          My journey in tech began in Software Quality Assurance, where I gained over three years of experience in
+          manual and automated testing, working with tools such as Selenium, Robot Framework, and API testing
+          frameworks. This experience gave me a strong foundation in software quality, debugging, and system
+          reliability, and shaped my attention to detail and problem-solving mindset. <br />
+          Driven by curiosity and a desire to build better systems, I expanded into Full Stack Development, working with
+          technologies such as React, Node.js, Express, PHP, Strapi, and MySQL. I have contributed to real-world
+          projects where I not only developed applications but also introduced test automation practices, improved
+          workflows, and collaborated closely with cross-functional teams. <br />
+          Currently, I am working as a Data/Cloud Engineer, where I focus on designing and building scalable data
+          pipelines and cloud-based solutions using tools like Python, SQL, and cloud platforms (Azure, AWS, GCP). I
+          enjoy transforming raw data into meaningful insights that support decision-making and drive business value.{' '}
           <br />
-          <br />
-          In addition to my technical interests, I have a strong passion for agriculture, particularly in crops and
-          animal husbandry. I enjoy reading and learning more about the agricultural industry, which often inspires my
-          creativity and drive for continuous learning. Explore my portfolio to see the projects I’ve worked on as I
-          continue my transition into the world of full-stack development.
+          What sets me apart is my ability to work across the entire technology stack—from data and backend systems to
+          frontend development and quality assurance—allowing me to build solutions that are not only functional but
+          also reliable, scalable, and efficient. <br />
+          Beyond technology, I have a strong passion for agriculture, particularly in crop production and animal
+          husbandry. I enjoy reading and learning about the agricultural sector, which fuels my curiosity and long-term
+          interest in applying technology to real-world challenges. <br />
+
+          I am continuously learning, building, and exploring new opportunities to grow. Feel free to explore my portfolio to see the projects I’ve worked on and how I bring together data, development, and quality engineering to create impactful solutions.
         </p>
       </div>
 
