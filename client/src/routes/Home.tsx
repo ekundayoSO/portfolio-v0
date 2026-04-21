@@ -30,17 +30,8 @@ const Home: React.FC = () => {
       <div className="bg-gray-900 py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-8">What I Do</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Card 1: Data Engineering */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-white mb-4">Data Engineering</h3>
-              <p className="text-gray-300">
-                I design and build reliable data pipelines, model data for analytics, and optimize ETL workflows to
-                deliver clean, actionable insights.
-              </p>
-            </div>
-
-            {/* Card 2: Full-Stack Development */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card 1: Full-Stack Development */}
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-white mb-4">Full-Stack Development</h3>
               <p className="text-gray-300">
@@ -49,7 +40,7 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            {/* Card 3: Software QA Engineering */}
+            {/* Card 2: Software QA Engineering */}
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-white mb-4">Software QA Engineering</h3>
               <p className="text-gray-300">
@@ -58,11 +49,12 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            {/* Card 4: DevOps & Cloud */}
+            {/* Card 3: DevOps, Cloud & Data Engineering */}
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-white mb-4">DevOps & Cloud</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Cloud & Data Engineering</h3>
               <p className="text-gray-300">
-                I work with Docker, Kubernetes, and CI/CD pipelines to deploy and manage applications in the cloud.
+                I work with Docker, Kubernetes, and CI/CD pipelines to deploy and manage applications in the cloud,
+                while also building reliable data pipelines and optimizing ETL workflows for analytics.
               </p>
             </div>
           </div>
