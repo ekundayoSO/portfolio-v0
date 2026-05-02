@@ -5,7 +5,7 @@ const GuessAndWin = () => {
   const [numberInput, setNumberInput] = React.useState<string>('');
   const [randomNumber, setRandomNumber] = React.useState<number>(() => Math.floor(Math.random() * 15) + 1);
   const [showRandom, setShowRandom] = React.useState<boolean>(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const guessNumber = () => {
     if (!numberInput) {
@@ -73,7 +73,7 @@ const GuessAndWin = () => {
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
           border: '1px solid #c3e6cb',
         },
-      }
+      },
     );
   };
 
@@ -98,7 +98,7 @@ const GuessAndWin = () => {
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
           border: '1px solid #f5c6cb',
         },
-      }
+      },
     );
   };
 

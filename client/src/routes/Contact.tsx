@@ -2,8 +2,7 @@ import { useState, useRef } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { ContactData } from '../types/Contact';
-import ReCAPTCHAImport from 'react-google-recaptcha';
-const ReCAPTCHA = ReCAPTCHAImport as unknown as React.FC<any>;
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -18,7 +17,7 @@ const Contact: React.FC = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   // Add a ref for the ReCAPTCHA component
-  const recaptchaRef = useRef<any>(null);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -167,9 +166,7 @@ const Contact: React.FC = () => {
             onChange={handleCaptchaChange}
             className="my-4"
           />
-          <div className="text-green-500 text-sm">
-            {captchaValue ? '' : ''}
-          </div>
+          <div className="text-green-500 text-sm">{captchaValue ? '' : ''}</div>
 
           <button
             type="submit"
